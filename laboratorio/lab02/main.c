@@ -5,4 +5,6 @@ void main () {
 
     printf("asd\n");
     return 0;
+
+    // test
 }
