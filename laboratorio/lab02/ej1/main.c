@@ -64,7 +64,6 @@ int main(int argc, char *argv[])
 
 	/* do the actual sorting */
 
-	array_dump(array, length);
 	insertion_sort(array, length);
 
 	/* show the ordered array in the screen */
