@@ -61,6 +61,9 @@ int main(int argc, char *argv[]) {
     /* show the ordered array in the screen */
     array_dump(array, length);
 
+    quick_sort(array, length);
+    array_dump(array, length);
+
     /* check if it is sorted */
     assert(array_is_sorted(array, length));
 
