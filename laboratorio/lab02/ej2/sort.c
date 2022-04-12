@@ -8,7 +8,6 @@
 
 
 static void quick_sort_rec(int a[], unsigned int izq, unsigned int der) {
-    /* needs implementation */
 
     /* no implementes partition, ya está implementado en sort_helpers.o
        (no se puede leer, pero en sort_helpers.h vas a encontrar información
