@@ -3,15 +3,15 @@
 
 #include <stdbool.h>
 
-bool goes_before(int x, int y);
 /* Abstract total order for sorting algorithms */
+bool goes_before(int x, int y);
 
-bool array_is_sorted(int a[], unsigned int length);
 /* Checks if the array 'a' is in ascending order */
+bool array_is_sorted(int a[], unsigned int length);
 
-void swap(int a[], unsigned int i, unsigned int j);
 /* Exchanges elements of array 'a' in the given positions 'i' and 'j'
    Array remains the same if the two positions are the same
 */
+void swap(int a[], unsigned int i, unsigned int j);
 
 #endif
