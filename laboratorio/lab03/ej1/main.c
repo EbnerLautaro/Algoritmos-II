@@ -10,6 +10,7 @@
 
 /* Then, this project's includes, alphabetically ordered */
 #include "array_helpers.h"
+#include "weather_utils.h"
 
 /**
  * @brief print usage help
@@ -70,8 +71,38 @@ int main(int argc, char *argv[]) {
     /* parse the file to fill the array and obtain the actual length */
     array_from_file(array, filepath);
 
-    /* show the ordered array in the screen */
-    array_dump(array);
+
+    printf("lowest_historical_temp: %d\n", lowest_historical_temp(array));
+
+    printf("\n\n");
+
+    printf("highest_temp_by_year\n");
+    int temps[YEARS];
+    highest_temp_by_year(array, temps);
+    for (unsigned int i = 0; i < YEARS; i++)
+    {
+        printf("year %d: %d\n", i+1980, temps[i] );
+        
+    }
+    
+    printf("\n\n");
+
+    
+    printf("max_monthly_rainfall_by_year\n");
+    month_t months[YEARS];
+    // lista con nombre de los meses
+    const char *months_name[] = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+    max_monthly_rainfall_by_year(array, months);
+    for (unsigned int i = 0; i < YEARS; i++)
+    {
+        printf("year %d: %s\n", i+1980, months_name[months[i]] );
+        
+    }
+
+
+
+    // /* show the ordered array in the screen */
+    // array_dump(array);
 
     return (EXIT_SUCCESS);
 }
