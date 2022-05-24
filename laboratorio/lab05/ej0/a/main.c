@@ -18,7 +18,9 @@ int main(void)
            filtered, string_length(filtered));
 
     free(filtered);
+    free(some_str);
     filtered = NULL;
+    some_str = NULL;
 
     return EXIT_SUCCESS;
 }

@@ -74,5 +74,7 @@ int main(int argc, char *argv[])
     
     printf("Reversed: ");
     array_dump(new_array, length);
+    free(new_array);
+
     return (EXIT_SUCCESS);
 }

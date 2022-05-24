@@ -52,6 +52,9 @@ int main(void) {
     printf("Original ->%p\n",original);
     printf("Copy     ->%p\n",copy);
  
+ 
+    free(copy);
+
     return EXIT_SUCCESS;
 }
 

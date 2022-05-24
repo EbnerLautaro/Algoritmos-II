@@ -6,7 +6,13 @@
 char *string_clone(const char *str)
 {
     char *clone = malloc(strlen(str)+1);
-    strcpy(clone, str);
+    
+    // strcpy(clone, str);
+    
+    for (size_t i = 0; i < strlen(str); i++) {
+        clone[i] = str[i];
+    }
+    
     return clone;
 }
 
@@ -47,6 +53,10 @@ int main(void)
     printf("Copia   : %s\n", copy);
     printf("Original    -> %p\n", original);
     printf("Copia       -> %p\n", copy);
+
+
+    // free(original);
+    free(copy);
 
     return EXIT_SUCCESS;
 }

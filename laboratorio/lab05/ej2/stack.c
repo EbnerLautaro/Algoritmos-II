@@ -11,20 +11,22 @@ struct _s_stack {
 
 stack stack_empty() {
     stack s = (stack) malloc(sizeof(struct _s_stack));
-    s->capacity = 1;
+    s->capacity = 0;
     s->size = 0;
     s->elems = NULL;
     return s;
 }
 
 stack stack_push(stack s, stack_elem e) {
-    
-    if (s->size >= s->capacity || s->size == 0) {
+    //  || s->size == 0
+    if (s->size == s->capacity) {
+        unsigned int newcapacity = s->capacity==0 ? 1 : 2 * s->capacity; 
         // a s->elems le tengo que asignar el doble de memoria (el doble de capacidad) 
-        s->elems = realloc(s->elems, 2 * s->capacity  * sizeof(stack_elem));
+        s->elems = realloc(s->elems, newcapacity  * sizeof(stack_elem));
+        s->capacity = newcapacity;
     } 
     s->elems[s->size] = e;
-    (s->size)++; 
+    (s->size)++;    
     return s;
 }
 
@@ -40,7 +42,7 @@ stack stack_pop(stack s) {
     
     (s->size)--;
     return s;
-}
+}   
 
 
 unsigned int stack_size(stack s) {
@@ -66,5 +68,6 @@ stack_elem * stack_to_array(stack s) {
 stack stack_destroy(stack s) {
     free(s->elems);
     free(s);
+    s = NULL;
     return s;
 }
