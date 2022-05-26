@@ -22,7 +22,6 @@ char *parse_filepath(int argc, char *argv[]) {
     }
 
     result = argv[1];
-
     return (result);
 }
 
@@ -72,9 +71,7 @@ int main(int argc, char *argv[]) {
     abb_dump(tree);
     if (!abb_is_empty(tree)) {
         printf("\n");
-        printf("raiz: %d\n minimo: %d\n maximo: %d\n", abb_root(tree),
-                                                       abb_min(tree),
-                                                       abb_max(tree));
+        printf("raiz: %d\n minimo: %d\n maximo: %d\n", abb_root(tree), abb_min(tree), abb_max(tree));
     } else {
         printf("\nÁrbol vacío\n");
     }
