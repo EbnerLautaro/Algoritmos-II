@@ -8,22 +8,30 @@ struct _s_string {
     unsigned int length;
 };
 
+
+
+
 string string_create(const char *word) {
     string str = NULL;
-    str = calloc(1, sizeof(struct _s_string));
-    str->length = /* needs implementation */;
-    str->content = calloc(/* needs implementation */, sizeof(char));
+    str = malloc(sizeof(struct _s_string));
+    str->length = strlen(word);
+    str->content = calloc(str->length + 1, sizeof(char));
     str->content = strncpy(str->content, word, str->length + 1);
-    return (str);
+    return str;
 }
 
 unsigned int string_length(string str) {
     return (str->length);
 }
 
-bool string_less(const string str1, const string str2) {
-    /* needs implementation */
-    return false;
+bool string_less(const string str1, const string str2) {    
+    int t = strcmp(str1->content, str2->content);
+    // It compares the two strings character by character till there is a mismatch. 
+    // If the two strings are identical, it returns a 0. 
+    // If not, then it returns the difference between the ASCII values 
+    // of the first non-matching pair of characters.
+
+    return (t<=0);
 }
 
 bool string_eq(const string str1, const string str2) {
@@ -43,7 +51,7 @@ string string_destroy(string str) {
 }
 
 void string_dump(string str, FILE *file) {
-    fprintf(file, "%s", str->content);
+    fprintf(file, "%s\n", str->content);
 }
 
 const char *string_ref(string str) {
